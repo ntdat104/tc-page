@@ -17,6 +17,7 @@
     "moment": "^2.29.3",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
+    "react-csv": "^2.2.2",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
     "resize-observer-polyfill": "^1.5.1",
@@ -46,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-csv": "^1.1.2"
   }
 }

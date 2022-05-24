@@ -9,14 +9,14 @@ export default function MultilineChartModule({ data, code }) {
   const legendData = [
     {
       name: ` ${code}`,
-      color: '#E14040',
+      color: '#25B770',
       items: data.map((d) => ({ ...d, date: new Date(d.date) })),
     },
   ];
   const chartData = [
     {
       name: ` ${code}`,
-      color: '#E14040',
+      color: '#25B770',
       items: data.map((d) => ({ ...d, date: new Date(d.date) })),
     },
   ];

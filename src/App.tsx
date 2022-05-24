@@ -1,8 +1,9 @@
-import { Select } from 'antd';
+import { Button, Select } from 'antd';
 import React from 'react';
 import MultilineChartModule from './modules/MultilineChartModule';
 import moment from 'moment';
 import axios from 'axios';
+import { CSVLink } from 'react-csv';
 
 const App: React.FC = () => {
   const [options, setOptions] = React.useState<any>();
@@ -64,8 +65,6 @@ const App: React.FC = () => {
     setId(value);
   };
 
-  console.log(options?.filter((item: any) => item?.id === id)[0]?.code);
-
   return (
     <>
       {data && (
@@ -102,6 +101,22 @@ const App: React.FC = () => {
         <Select.Option value={12}>{`12 Tháng`}</Select.Option>
         <Select.Option value={36}>{`36 Tháng`}</Select.Option>
       </Select>
+      {data && options?.filter((item: any) => item?.id === id)[0]?.code && (
+        <Button type="primary">
+          <CSVLink
+            data={data?.map((item: any) => ({
+              id: item?.id,
+              code: options?.filter((item: any) => item?.id === id)[0]?.code,
+              name: options?.filter((item: any) => item?.id === id)[0]?.name,
+              date: item?.date,
+              nav: item?.value,
+            }))}
+            filename={options?.filter((item: any) => item?.id === id)[0]?.code}
+          >
+            {`Export CSV`}
+          </CSVLink>
+        </Button>
+      )}
     </>
   );
 };
